@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
-import 'package:flutter/services.dart' show rootBundle;
 import 'dart:convert';
 import 'dart:async';
 
@@ -16,7 +15,6 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
-
   // create a pop up window to display the definition of the word
   createAlertDialog(BuildContext context, var data, String myStr) {
     return showDialog(
@@ -37,21 +35,30 @@ class MyAppState extends State<MyApp> {
         });
   }
 
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return new Scaffold(
         appBar: AppBar(
           title: Text("Welcome to Read To Me"),
+          backgroundColor: Colors.amber,
         ),
-        body: Container(
-          child: Center(
+        body: new Container(
+            child: new Column(children: <Widget>[
+          Align(
+            alignment: Alignment.topLeft,
+            child: Text(
+              "Instruction: Double click on a word to see a message",
+              style: TextStyle(fontSize: 20),
+            ),
+          ),
+          SizedBox(height: 50),
+          Align(
+            alignment: Alignment.center,
             // Use future builder and DefaultAssetBundle to load the local JSON file
             child: FutureBuilder(
                 future: DefaultAssetBundle.of(context)
                     .loadString('assets/word.json'),
                 builder: (context, snapshot) {
-
                   // Decode the JSON
                   var newData = json.decode(snapshot.data.toString());
 
@@ -93,6 +100,6 @@ class MyAppState extends State<MyApp> {
                   );
                 }),
           ),
-        ));
+        ])));
   }
 }
