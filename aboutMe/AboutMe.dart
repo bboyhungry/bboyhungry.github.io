@@ -5,7 +5,6 @@ class AboutMe extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-<<<<<<< HEAD
         title: Text("Hello World"), // text
       ),
       body: Column(children: <Widget>[
@@ -30,25 +29,4 @@ class AboutMe extends StatelessWidget {
           ), // row
     ); // scaffold
   } // end of widget build funcion
-=======
-        title: Text("About Me"),
-      ),
-      body: Column(
-        children: <Widget>[
-          Align(
-            alignment: Alignment.topCenter,
-            child: Text(
-              "About Me",
-              style: TextStyle(fontSize: 50),
-            ),
-          ),
-          SizedBox(height: 100),
-          Center(
-            child: Text("Testing"),
-          ),
-        ],
-      ),
-    );
-  }
->>>>>>> 92190803267311c0e10536ad090fc3fab9710089
 }
